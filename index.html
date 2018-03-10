@@ -3,6 +3,9 @@
     <head>
         <title>Ana Amari</title>
         <style>
+            h1, p {
+                text-align: center;
+            }
             .ana {
                 position: relative;
                 display: block;
@@ -51,6 +54,10 @@
                 animation-name: anaBlue;
                 animation-delay: 0.1s;
             }
+            .footer {
+                font-size: 0.8em;
+                margin-top: 3rem;
+            }
 
             @keyframes anaBlue {
                 0% {
@@ -69,13 +76,44 @@
                     transform: translate3d(3px,3px,0);
                 }
             }
+            @media (min-width: 992px) {
+                .hero-area {
+                    display: flex;
+                    max-width: 1200px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .ana { margin-right: 2em; }
+            }
         </style>
     </head>
     <body>
-        <div class="ana">
-            <img src="ana.png" alt="Ana" />
+        <h1>Ana Amari</h1>
+        <p>Support + Sniper</p>
+        <div class="hero-area">
+            <div class="ana">
+                <img src="ana.png" alt="Ana" />
+            </div>
+            <div class="ana-abilities">
+                <h2>Abilities</h2>
+                <ul>
+                    <li>Trait: Shrike <span>Basic Attacks apply a Dose to non-Structure enemies, dealing an additional 44 damage over 5 seconds, and stacking up to 5 times.</span></li>
+                    <li>Healing Dart <span>Fire a dart which heals the first allied Hero hit for 237 Health.</span></li>
+                    <li>Biotic Grenade <span>Toss a Grenade at the target area. Allied Heroes hit are healed for 166 Health and receive 25% increased healing for 4 seconds. Enemies hit take 60 damage and receive 100% less healing for 2 seconds.</span></li>
+                    <li>Sleep Dart <span>Fire a dart that puts the first enemy Hero hit to Sleep, Stunning them for 3 seconds. Sleep's effects end instantly if the target takes damage after the first 0.5 seconds. Cannot be used on Vehicles.</span></li>
+                    <li>
+                        <strong>Heroic Abilities</strong>
+                        <ul>
+                            <li>Nano Boost <span>Instantly boost an allied Hero, restoring 200 Mana. For the next 8 seconds, they gain 30% Spell Power and their Basic Ability cooldowns recharge 150% faster. Cannot be used on Ana.</span></li>
+                            <li>Eye of Horus <span>Assume a sniping position, gaining the ability to fire up to 8 specialized rounds with unlimited range. Rounds hit the first allied or enemy Hero or enemy Structure in their path. Allies are healed for 285 and enemies are damaged for 166. Deals 50% less damage to Structures. Ana is unable to move while Eye of Horus is active.</span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-
+        <footer role="contentinfo" class="footer">
+            <p>Art and content from Heroes of the Storm from Blizzard Entertainment</p>
+        </footer>
         <script>
             window.onload = function(){
                 const ana = document.querySelector('.ana');
