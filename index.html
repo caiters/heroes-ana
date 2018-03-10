@@ -2,8 +2,88 @@
 <html>
     <head>
         <title>Ana Amari</title>
+        <style>
+            .ana {
+                position: relative;
+                display: block;
+                max-width: 365px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .ana:before, .ana:after {
+                content: '';
+                background: transparent none center center no-repeat;
+                position: absolute;
+                left: 0;
+                z-index: -1;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                transition: transform 2s ease-out;
+            }
+            .ana:before {
+                content: '';
+                background-image: url('ana-yellow.png');
+                transform: translate3d(12px,12px,0);
+
+            }
+            .ana:after {
+                content: '';
+                background-image: url('ana-blue.png');
+                transform: translate3d(-12px,-12px,0);
+            }
+
+            .ana--loaded:before, .ana--loaded:after {
+                transform: translate3d(0,0,0);
+            }
+
+            .ana--animating:before, .ana--animating:after {
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+
+            .ana--animating:before {
+                animation-name: anaYellow;
+            }
+
+            .ana--animating:after {
+                animation-name: anaBlue;
+                animation-delay: 0.1s;
+            }
+
+            @keyframes anaBlue {
+                0% {
+                    transform: translate3d(0,0,0);
+                }
+                100% {
+                    transform: translate3d(-3px,-3px,0);
+                }
+            }
+
+            @keyframes anaYellow {
+                0% {
+                    transform: translate3d(0,0,0);
+                }
+                100% {
+                    transform: translate3d(3px,3px,0);
+                }
+            }
+        </style>
     </head>
     <body>
-        <img src="ana.png" alt="Ana" />
+        <div class="ana">
+            <img src="ana.png" alt="Ana" />
+        </div>
+
+        <script>
+            window.onload = function(){
+                const ana = document.querySelector('.ana');
+                ana.classList.add('ana--loaded');
+                ana.addEventListener('transitionend', function(e){
+                    ana.classList.add('ana--animating');
+                })
+            }
+        </script>
     </body>
 </html>
