@@ -2,90 +2,7 @@
 <html>
     <head>
         <title>Ana Amari</title>
-        <style>
-            h1, p {
-                text-align: center;
-            }
-            .ana {
-                position: relative;
-                display: block;
-                max-width: 365px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .ana:before, .ana:after {
-                content: '';
-                background: transparent none center center no-repeat;
-                position: absolute;
-                left: 0;
-                z-index: -1;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                transition: transform 2s ease-out;
-            }
-            .ana:before {
-                content: '';
-                background-image: url('ana-yellow.png');
-                transform: translate3d(12px,12px,0);
-
-            }
-            .ana:after {
-                content: '';
-                background-image: url('ana-blue.png');
-                transform: translate3d(-12px,-12px,0);
-            }
-
-            .ana--loaded:before, .ana--loaded:after {
-                transform: translate3d(0,0,0);
-            }
-
-            .ana--animating:before, .ana--animating:after {
-                animation-duration: 3s;
-                animation-iteration-count: infinite;
-                animation-direction: alternate;
-            }
-
-            .ana--animating:before {
-                animation-name: anaYellow;
-            }
-
-            .ana--animating:after {
-                animation-name: anaBlue;
-                animation-delay: 0.1s;
-            }
-            .footer {
-                font-size: 0.8em;
-                margin-top: 3rem;
-            }
-
-            @keyframes anaBlue {
-                0% {
-                    transform: translate3d(0,0,0);
-                }
-                100% {
-                    transform: translate3d(-3px,-3px,0);
-                }
-            }
-
-            @keyframes anaYellow {
-                0% {
-                    transform: translate3d(0,0,0);
-                }
-                100% {
-                    transform: translate3d(3px,3px,0);
-                }
-            }
-            @media (min-width: 992px) {
-                .hero-area {
-                    display: flex;
-                    max-width: 1200px;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-                .ana { margin-right: 2em; }
-            }
-        </style>
+        <link rel="stylesheet" href="ana.css" type="text/css" />
     </head>
     <body>
         <h1>Ana Amari</h1>
@@ -95,19 +12,17 @@
                 <img src="ana.png" alt="Ana" />
             </div>
             <div class="ana-abilities">
-                <h2>Abilities</h2>
-                <ul>
-                    <li>Trait: Shrike <span>Basic Attacks apply a Dose to non-Structure enemies, dealing an additional 44 damage over 5 seconds, and stacking up to 5 times.</span></li>
-                    <li>Healing Dart <span>Fire a dart which heals the first allied Hero hit for 237 Health.</span></li>
-                    <li>Biotic Grenade <span>Toss a Grenade at the target area. Allied Heroes hit are healed for 166 Health and receive 25% increased healing for 4 seconds. Enemies hit take 60 damage and receive 100% less healing for 2 seconds.</span></li>
-                    <li>Sleep Dart <span>Fire a dart that puts the first enemy Hero hit to Sleep, Stunning them for 3 seconds. Sleep's effects end instantly if the target takes damage after the first 0.5 seconds. Cannot be used on Vehicles.</span></li>
-                    <li>
-                        <strong>Heroic Abilities</strong>
-                        <ul>
-                            <li>Nano Boost <span>Instantly boost an allied Hero, restoring 200 Mana. For the next 8 seconds, they gain 30% Spell Power and their Basic Ability cooldowns recharge 150% faster. Cannot be used on Ana.</span></li>
-                            <li>Eye of Horus <span>Assume a sniping position, gaining the ability to fire up to 8 specialized rounds with unlimited range. Rounds hit the first allied or enemy Hero or enemy Structure in their path. Allies are healed for 285 and enemies are damaged for 166. Deals 50% less damage to Structures. Ana is unable to move while Eye of Horus is active.</span></li>
-                        </ul>
-                    </li>
+                <h2>Basic Abilities</h2>
+                <ul class="abilities">
+                    <li class="abilities__item"><span class="abilities__name abilities__name--trait">Trait: Shrike</span> Basic Attacks apply a Dose to non-Structure enemies, dealing an additional 44 damage over 5 seconds, and stacking up to 5 times.</li>
+                    <li class="abilities__item"><span class="abilities__name abilities__name--one">Healing Dart</span> Fire a dart which heals the first allied Hero hit for 237 Health.</li>
+                    <li class="abilities__item"><span class="abilities__name abilities__name--two">Biotic Grenade</span> Toss a Grenade at the target area. Allied Heroes hit are healed for 166 Health and receive 25% increased healing for 4 seconds. Enemies hit take 60 damage and receive 100% less healing for 2 seconds.</li>
+                    <li class="abilities__item"><span class="abilities__name abilities__name--three">Sleep Dart</span> Fire a dart that puts the first enemy Hero hit to Sleep, Stunning them for 3 seconds. Sleep's effects end instantly if the target takes damage after the first 0.5 seconds. Cannot be used on Vehicles.</li>
+                </ul>
+                <h2>Heroic Abilities</h2>
+                <ul class="abilities abilities--heroic">
+                    <li class="abilities__item"><span class="abilities__name abilities__name--h-one">Nano Boost</span> Instantly boost an allied Hero, restoring 200 Mana. For the next 8 seconds, they gain 30% Spell Power and their Basic Ability cooldowns recharge 150% faster. Cannot be used on Ana.</li>
+                    <li class="abilities__item"><span class="abilities__name abilities__name--h-two">Eye of Horus</span> Assume a sniping position, gaining the ability to fire up to 8 specialized rounds with unlimited range. Rounds hit the first allied or enemy Hero or enemy Structure in their path. Allies are healed for 285 and enemies are damaged for 166. Deals 50% less damage to Structures. Ana is unable to move while Eye of Horus is active.</li>
                 </ul>
             </div>
         </div>

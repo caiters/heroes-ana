@@ -1,0 +1,161 @@
+body {
+    font-family: Georgia, serif;
+}
+
+h1, h2, h3 {
+    font-family: sans-serif;
+}
+
+h1, p {
+    text-align: center;
+}
+.ana {
+    position: relative;
+    display: block;
+    max-width: 365px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ana img {
+    max-width: 100%;
+}
+.footer {
+    font-size: 0.8em;
+    margin-top: 3rem;
+}
+
+.abilities {
+    display: grid;
+    grid-template-columns: 1fr;
+    list-style: none outside;
+    margin: 0;
+    padding: 0;
+}
+
+.abilities__item {
+    padding: 0 1em 0 0;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.abilities__name {
+    font-size: 1rem;
+    display: block;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.abilities__name:before {
+    content: '';
+    width: 64px;
+    height: 73px;
+    display: block;
+    background: url('abilities.png') 0 0 no-repeat;
+}
+
+.abilities__name--trait:before {
+    background-position: -320px 0;
+}
+
+.abilities__name--one:before {
+    background-position: 0 0;
+}
+
+.abilities__name--two:before {
+    background-position: -64px 0;
+}
+
+.abilities__name--three:before {
+    background-position: -128px 0;
+}
+
+.abilities__name--h-one:before {
+    background-position: -192px 0;
+}
+
+.abilities__name--h-two:before {
+    background-position: -256px 0;
+}
+
+@media (min-width: 400px) {
+    .abilities {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .abilities {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .ana:before, .ana:after {
+        content: '';
+        background: transparent none center center no-repeat;
+        position: absolute;
+        left: 0;
+        z-index: -1;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 2s ease-out;
+    }
+
+    .ana:before {
+        content: '';
+        background-image: url('ana-yellow.png');
+        transform: translate3d(12px,12px,0);
+    }
+
+    .ana:after {
+        content: '';
+        background-image: url('ana-blue.png');
+        transform: translate3d(-12px,-12px,0);
+    }
+
+    .ana--loaded:before, .ana--loaded:after {
+        transform: translate3d(0,0,0);
+    }
+
+    .ana--animating:before, .ana--animating:after {
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    .ana--animating:before {
+        animation-name: anaYellow;
+    }
+
+    .ana--animating:after {
+        animation-name: anaBlue;
+        animation-delay: 0.1s;
+    }
+    @keyframes anaBlue {
+        0% {
+            transform: translate3d(0,0,0);
+        }
+        100% {
+            transform: translate3d(-3px,-3px,0);
+        }
+    }
+
+    @keyframes anaYellow {
+        0% {
+            transform: translate3d(0,0,0);
+        }
+        100% {
+            transform: translate3d(3px,3px,0);
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-area {
+        display: flex;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ana { margin-right: 2em; }
+}
